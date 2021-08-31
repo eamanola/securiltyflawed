@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Messaging</title>
+  </head>
+  <body>
+    <div>
+      Hello {{user_name}}, <a href="/logout/">logout</a>
+    </div>
+    <h1>Messaging</h1>
+    <form action='message/' method="POST">
+      {% csrf_token %}
+      <p>
+        <label for="to">to:
+          <select class="" name="to">
+            {% for user in users %}
+              <option value="{{user.id}}">{{user.username}} [{{user.email}}]</option>
+            {% endfor %}
+          </select>
+        </label>
+      </p>
+      <p>
+        <textarea name="message" rows="8" cols="80" maxlength="200"></textarea>
+      <p>
+      <p>
+        <input type="submit" value="send"/>
+      </p>
+    </form>
+    <h2>Your messages</h2>
+    {% for message in messages %}
+      <div>
+        <b>{{message.sender.username}}</b>:
+        {% autoescape off %}
+        {{message.message}}
+        {% endautoescape %}
+      </div>
+    {% endfor %}
+  </body>
+</html>
