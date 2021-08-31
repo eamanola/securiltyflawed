@@ -45,7 +45,7 @@ This is a simple messaging app, where users can send free text to each other. 5 
 
 Flaws below are named as mentioned in [OWASP TOP10](https://owasp.org/www-project-top-ten/).
 
-Line numbers are replaced, but code on line, as the number may change during writing.
+Line numbers are replaced, with the code on line, as the number may change during writing.
 
 ## Flaw 1) A1:2017-Injection
 
